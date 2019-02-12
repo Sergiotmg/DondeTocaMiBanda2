@@ -47,7 +47,8 @@ public class Controller implements Callback<EventData> {
     }
 
     @Override
-    public void onResponse(Call<EventData> call, Response<EventData> response) {
+    public void onResponse(Call<EventData> call,
+                           Response<EventData> response) {
         if(response.isSuccessful()) {
             EventData eventData = response.body();
             handler.onResponse(eventData);//ya tenemos el bandsintown en el mainactiivity
@@ -68,6 +69,8 @@ public class Controller implements Callback<EventData> {
     public interface ServerResponse{
         // si la interfaz es publica los metodos tambien!
         void onResponse(EventData eventData);
+        //void onResponse2(ArtistData artistData);
+        //void onResponse3(VenueData venueData);
         void onResponseFailed(String response);//solo devuelve el error
         void onFailure(String message);
 
